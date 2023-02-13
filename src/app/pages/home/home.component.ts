@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IMovie } from 'src/app/entities/interface/movies.interface';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 
 @Component({
@@ -10,10 +11,10 @@ export class HomeComponent implements OnInit {
 
   constructor(private service: MovieApiService){}
 
-  bannerMoviesData: any =[];
-  trendingMoviesData: any = [];
-  actionMoviesData: any = [];
-  comedyMoviesData: any = [];
+  bannerMoviesData: Array<IMovie> =[];
+  trendingMoviesData: Array<IMovie> = [];
+  actionMoviesData: Array<IMovie> = [];
+  comedyMoviesData: Array<IMovie> = [];
   adventureMoviesData: any = [];
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
   bannerMovieDataRequest(){
     this.service.bannerApiData().subscribe((result) => {
       this.bannerMoviesData = result.results;
+      console.log('bannerApiData', result)
     })
   }
 
@@ -34,6 +36,9 @@ export class HomeComponent implements OnInit {
   trendingDataRequest(){
     this.service.trendingMovieApiData().subscribe((result) => {
       this.trendingMoviesData = result.results
+      console.log('result', result)
+      console.log('trendingMoviesData', this.trendingMoviesData);
+      
     })
   }
 

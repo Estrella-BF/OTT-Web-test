@@ -1,0 +1,8 @@
+<div class="row">
+    <h5>{{ title }}</h5>
+    <div class="row-poster mt-3 p-2">
+        <ng-container *ngFor="let movie of moviesList">
+            <img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" class="row-image large-poster" alt="..." />
+        </ng-container>
+    </div>
+</div>
