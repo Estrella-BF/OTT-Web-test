@@ -1,0 +1,51 @@
+.carousel-inner{
+  height: 700px;
+}
+
+.carousel-inner .carousel-item img{
+  height: 700px;
+  object-fit: cover;
+}
+
+.carousel-inner h2{
+  color: #E50914;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.carousel-inner p{
+  color: white;
+}
+
+.row-poster{
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+
+.row-image{
+  max-height: 200px;
+  object-fit: contain;
+  width: 100%;
+  box-sizing: content-box;
+  transition: transform 450ms;
+  margin-right: 7px;
+}
+
+.row h5{
+  color: white;
+}
+
+.row-image:hover{
+  transform: scale(1.02);
+  cursor: pointer;
+  border: #E50914 solid 3px;
+}
+
+.large-poster {
+  max-height: 300px;
+}
+
+.row-poster::-webkit-scrollbar{
+  display: none;
+}
