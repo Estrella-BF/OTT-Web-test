@@ -33,12 +33,22 @@ export class AppComponent implements OnInit {
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    // this.login()
 
   } 
   
   login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    console.log('new firebase', new firebase.auth.GoogleAuthProvider());
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())/* .then((result) => {
+      const userInfo = result.additionalUserInfo;
+    })
+    .catch((error) => {
+      console.log('error', error);
+      window.alert(error);
+    }); */
+
   }
+
   logout() {
     this.auth.signOut();
   }
