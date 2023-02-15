@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { IMovie } from '../entities/movies/movies.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,17 @@ export class MovieApiService {
 
   constructor(private http: HttpClient) { }
 
+
+  private movieDetail = new BehaviorSubject<IMovie>({} as IMovie);
+  public getMovieDetail$ = this.movieDetail.asObservable();
+
   baseurl = "https://api.themoviedb.org/3";
   apikey = "e9e93fc4034386599d3fee2bfc1c7cd7";
+
+  // Movie Detail
+  setMovieDetail(movieDetail: IMovie) {
+    this.movieDetail.next(movieDetail);
+  }
 
   //bannerapidata
   bannerApiData(): Observable<any>{
