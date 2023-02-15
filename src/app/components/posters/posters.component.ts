@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { IMovie } from 'src/app/entities/interface/movies.interface';
+import { IMovie } from 'src/app/entities/movies/movies.interface';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 
 @Component({
@@ -16,14 +16,16 @@ export class PostersComponent {
   @Input()
   moviesList: IMovie[] = []
 
+  movieDetailSelected: IMovie = {} as IMovie;
+
   constructor(private router: Router, private movieApiService: MovieApiService) {}
 
   showDetail(id: number) {
-    this.router.navigateByUrl(`detail`)
- /*    this.movieApiService.getMovieDetails(id).subscribe(res => {
-      console.log('detail', res);
-      
-    }) */
+    this.movieApiService.getMovieDetails(id).subscribe((movie: IMovie) => {
+      console.log('detail', movie);
+      this.movieDetailSelected = movie;
+    });
+    this.router.navigateByUrl(`detail`);
   }
 
 
