@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   trendingMoviesData: Array<IMovie> = [];
   actionMoviesData: Array<IMovie> = [];
   comedyMoviesData: Array<IMovie> = [];
-  adventureMoviesData: any = [];
+  adventureMoviesData: Array<IMovie> = [];
 
   ngOnInit(): void {
     this.bannerMovieDataRequest();
@@ -28,23 +28,20 @@ export class HomeComponent implements OnInit {
   bannerMovieDataRequest(){
     this.service.bannerApiData().subscribe((result) => {
       this.bannerMoviesData = result.results;
-      console.log('bannerApiData', result)
     })
   }
 
 
   trendingDataRequest(){
     this.service.trendingMovieApiData().subscribe((result) => {
-      this.trendingMoviesData = result.results
-      console.log('result', result)
-      console.log('trendingMoviesData', this.trendingMoviesData);
+      this.trendingMoviesData = result.results;
       
     })
   }
 
   actionDataRequest(){
-    this.service.trendingMovieApiData().subscribe((result) => {
-      this.actionMoviesData = result.results
+    this.service.fetchActionMovies().subscribe((result) => {
+      this.actionMoviesData = result.results;
     })
   }
 
