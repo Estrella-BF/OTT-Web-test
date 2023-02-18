@@ -15,19 +15,16 @@ export class PostersComponent {
   title: string = '';
 
   @Input()
-  moviesList: IMovie[] = []
-  movieDetailSelected: IMovie = {} as IMovie;
+  moviesList: IMovie[] = [];
+
+  baseUrlMovieDB = this.movieApiService.imageBaseURL;
 
   constructor(private router: Router, private movieApiService: MovieApiService) {}
 
 
   showDetail(id: number) {
    this.movieApiService.getMovieDetails(id).subscribe((movie: IMovie) => {
-      this.movieDetailSelected = movie;
-
-      // with redirect
-      this.movieApiService.setMovieDetail(this.movieDetailSelected);
-      this.router.navigateByUrl(`movie/${id}`);
+      this.router.navigate(['/movie', id]);
     });
 
   }

@@ -10,7 +10,7 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 export class HomeComponent implements OnInit {
 
   constructor(private service: MovieApiService){}
-
+  baseUrlMovieDB = this.service.imageBaseURL;
   bannerMoviesData: Array<IMovie> =[];
   trendingMoviesData: Array<IMovie> = [];
   actionMoviesData: Array<IMovie> = [];

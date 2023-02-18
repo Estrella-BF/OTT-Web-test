@@ -3,34 +3,11 @@
     <div class="row-poster mt-3 p-2">
         <ng-container *ngFor="let movie of moviesList">
             <img 
-            data-bs-toggle="modal" data-bs-target="#exampleModal"
             (click)="showDetail(movie.id)"
-            src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" 
+            src="{{ baseUrlMovieDB }}{{ movie.poster_path }}" 
             class="row-image large-poster" 
             alt="movie {{ movie.original_title }}" 
             />
         </ng-container>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ movieDetailSelected.original_title }}</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div>
-                <img class="img-fluid" src="https://image.tmdb.org/t/p/original/{{ movieDetailSelected.backdrop_path }}" alt="{{ movieDetailSelected.title }}">
-            </div>
-            {{ movieDetailSelected.overview }}
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-        </div>
     </div>
 </div>
