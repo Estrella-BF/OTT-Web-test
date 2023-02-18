@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { Auth, getAuth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { IProfile, IUserInfo } from './entities/user/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +12,7 @@ import firebase from 'firebase/compat/app';
 })
 export class AppComponent implements OnInit {
   title = 'fzth';
+  profileInfo: IProfile = {} as IProfile;
 
   constructor(public auth: AngularFireAuth) {
 
@@ -39,13 +40,22 @@ export class AppComponent implements OnInit {
   
   login() {
     console.log('new firebase', new firebase.auth.GoogleAuthProvider());
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())/* .then((result) => {
-      const userInfo = result.additionalUserInfo;
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result) => {
+
+      console.log('result', result);
+      
+      if (result.additionalUserInfo) {
+
+        const userInfo: firebase.auth.AdditionalUserInfo = result.additionalUserInfo;
+        //this.profileInfo = userInfo.profile;
+        console.log('user', userInfo);
+      }
+      
     })
     .catch((error) => {
       console.log('error', error);
       window.alert(error);
-    }); */
+    });
 
   }
 

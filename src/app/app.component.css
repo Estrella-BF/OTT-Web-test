@@ -10,3 +10,8 @@
 .logout {
   cursor: pointer;
 }
+
+.auth-image {
+  margin-right: 2em;
+  width: 2.3em;
+}
