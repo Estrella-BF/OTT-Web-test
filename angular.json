@@ -27,7 +27,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/spatial-navigation-polyfill/polyfill/spatial-navigation-polyfill.js"
+            ]
           },
           "configurations": {
             "production": {
