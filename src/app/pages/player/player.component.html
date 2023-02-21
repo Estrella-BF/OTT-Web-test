@@ -1,10 +1,30 @@
-<div class="contain-fuild">
-    <vg-player (onPlayerReady)="onPlayerSet($event)" class="justify-content-center">
+<!-- <div class="contain-fuild">
+    <vg-player 
+    (onPlayerReady)="onPlayerSet($event)" 
+    class="justify-content-center"
+    >
       <video [vgMedia]="$any(media)" #media preload="auto" controls autoplay>
         <source
         src="https://storage.googleapis.com/exoplayer-test-media-1/gen-3/screens/dash-vod-single-segment/video-avc-baseline-480.mp4"
         />
       </video>
     </vg-player>
-  </div>
+  </div> -->
   
+
+
+<vg-player>
+  <vg-controls>
+    <vg-play-pause></vg-play-pause>
+    <vg-time-display></vg-time-display>
+    <vg-mute></vg-mute>
+    <vg-volume></vg-volume>
+  </vg-controls>
+
+  <video 
+  #media
+  [vgMedia]="$any(media)"
+  src="https://storage.googleapis.com/exoplayer-test-media-1/gen-3/screens/dash-vod-single-segment/video-avc-baseline-480.mp4"
+
+  ></video>
+</vg-player>

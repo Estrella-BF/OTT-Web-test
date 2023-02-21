@@ -8,7 +8,6 @@ import { VgApiService } from '@videogular/ngx-videogular/core';
 })
 export class PlayerComponent {
   api: VgApiService = {} as VgApiService;
-
 /*   onPlayClick() {
     this.api.play()
   } */
