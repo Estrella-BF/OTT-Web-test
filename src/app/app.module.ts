@@ -13,6 +13,12 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { PostersComponent } from './components/posters/posters.component'
 import { AngularFireAuth, SETTINGS as AUTH_SETTINGS } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
+import { PlayerComponent } from './pages/player/player.component';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +27,18 @@ import { AngularFireModule } from '@angular/fire/compat';
     MovieDetailComponent,
     SearchComponent,
     MovieDetailComponent,
-    PostersComponent
+    PostersComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyDVJG7jUGOgr8fENv9UD08-oMZjWVvt-98",
       authDomain: "fzth-globant.firebaseapp.com",
